@@ -118,7 +118,7 @@ namespace FluentMigrator.Infrastructure
 
         public static string GetWorkingDirectory()
         {
-            return Environment.CurrentDirectory;
+            return Directory.GetCurrentDirectory();
         }
 
         public static string GetConstraintName(ConstraintDefinition expression)

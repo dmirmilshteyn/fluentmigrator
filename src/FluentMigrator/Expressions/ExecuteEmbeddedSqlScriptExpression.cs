@@ -43,7 +43,7 @@ namespace FluentMigrator.Expressions
                 x.Name.Split('.')
                 .Reverse()
                 .Take(sqlScriptParts.Length)
-                .SequenceEqual(sqlScriptParts, StringComparer.InvariantCultureIgnoreCase);
+                .SequenceEqual(sqlScriptParts, StringComparer.OrdinalIgnoreCase);
 
             string result = null;
             var foundResources = resources.Where(isNameMatch).ToArray();
