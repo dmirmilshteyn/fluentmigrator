@@ -21,7 +21,11 @@ using System.Runtime.Serialization;
 
 namespace FluentMigrator.Exceptions
 {
+#if NETSTANDARD1_3
+    [DataContract]
+#else
     [Serializable]
+#endif
     public class ProcessorFactoryNotFoundException : FluentMigratorException
     {
         public ProcessorFactoryNotFoundException()
@@ -37,8 +41,10 @@ namespace FluentMigrator.Exceptions
         {
         }
 
+#if !NETSTANDARD1_3
         public ProcessorFactoryNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
+#endif
     }
 }
