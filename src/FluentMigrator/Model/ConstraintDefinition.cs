@@ -10,7 +10,7 @@ namespace FluentMigrator.Model
         Unique
     }
 
-    public class ConstraintDefinition : ICloneable, ICanBeConventional, ICanBeValidated, ISupportAdditionalFeatures
+    public class ConstraintDefinition : ICloneable<ConstraintDefinition>, ICanBeConventional, ICanBeValidated, ISupportAdditionalFeatures
     {
         public readonly Dictionary<string, object> _additionalFeatures = new Dictionary<string, object>();
 
@@ -34,9 +34,9 @@ namespace FluentMigrator.Model
             Columns = new HashSet<string>();
         }
 
-        #region ICloneable Members
+        #region ICloneable<ConstraintDefinition> Members
 
-        public object Clone()
+        public ConstraintDefinition Clone()
         {
             return new ConstraintDefinition(constraintType)
             {

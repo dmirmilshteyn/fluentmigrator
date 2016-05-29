@@ -23,7 +23,7 @@ using FluentMigrator.Infrastructure;
 
 namespace FluentMigrator.Model
 {
-    public class ForeignKeyDefinition : ICloneable, ICanBeConventional, ICanBeValidated
+    public class ForeignKeyDefinition : ICloneable<ForeignKeyDefinition>, ICanBeConventional, ICanBeValidated
     {
         public virtual string Name { get; set; }
         public virtual string ForeignTable { get; set; }
@@ -65,7 +65,7 @@ namespace FluentMigrator.Model
                 errors.Add(ErrorMessages.ForeignKeyMustHaveOneOrMorePrimaryColumns);
         }
 
-        public object Clone()
+        public ForeignKeyDefinition Clone()
         {
             return new ForeignKeyDefinition
             {

@@ -23,7 +23,7 @@ using FluentMigrator.Infrastructure;
 
 namespace FluentMigrator.Model
 {
-    public class ColumnDefinition : ICloneable, ICanBeConventional, ICanBeValidated, ISupportAdditionalFeatures
+    public class ColumnDefinition : ICloneable<ColumnDefinition>, ICanBeConventional, ICanBeValidated, ISupportAdditionalFeatures
     {
         public ColumnDefinition()
         {
@@ -65,9 +65,9 @@ namespace FluentMigrator.Model
                 errors.Add(ErrorMessages.ColumnTypeMustBeDefined);
         }
 
-        public virtual object Clone()
+        public virtual ColumnDefinition Clone()
         {
-            return MemberwiseClone();
+            return (ColumnDefinition)MemberwiseClone();
         }
 
         public class UndefinedDefaultValue
