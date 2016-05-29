@@ -20,6 +20,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using FluentMigrator.Expressions;
 using FluentMigrator.Model;
+#if NETSTANDARD1_3
+using System.Reflection;
+#endif
 
 namespace FluentMigrator.Builders.Delete
 {
@@ -60,10 +63,17 @@ namespace FluentMigrator.Builders.Delete
         private static DeletionDataDefinition GetData(object dataAsAnonymousType)
         {
             var data = new DeletionDataDefinition();
+#if NETSTANDARD1_3
+            var properties = dataAsAnonymousType.GetType().GetTypeInfo().DeclaredProperties;
+
+            foreach (var property in properties) 
+                data.Add(new KeyValuePair<string, object>(property.Name, property.GetValue(dataAsAnonymousType)));
+#else
             var properties = TypeDescriptor.GetProperties(dataAsAnonymousType);
 
             foreach (PropertyDescriptor property in properties)
                 data.Add(new KeyValuePair<string, object>(property.Name, property.GetValue(dataAsAnonymousType)));
+#endif
             return data;
         }
     }

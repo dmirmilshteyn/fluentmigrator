@@ -23,6 +23,8 @@ using System.Text;
 using FluentMigrator.Infrastructure.Extensions;
 using FluentMigrator.Model;
 using FluentMigrator.VersionTableInfo;
+using System.Reflection;
+using System.IO;
 
 namespace FluentMigrator.Infrastructure
 {
@@ -101,7 +103,11 @@ namespace FluentMigrator.Infrastructure
         public static IMigrationInfo GetMigrationInfoFor(Type migrationType)
         {
             var migrationAttribute = migrationType.GetOneAttribute<MigrationAttribute>();
+#if NETSTANDARD1_3
+            Func<IMigration> migrationFunc = () => (IMigration)Activator.CreateInstance(migrationType.GetTypeInfo().Assembly.GetType(migrationType.FullName));
+#else
             Func<IMigration> migrationFunc = () => (IMigration)migrationType.Assembly.CreateInstance(migrationType.FullName);
+#endif
             var migrationInfo = new MigrationInfo(migrationAttribute.Version, migrationAttribute.Description, migrationAttribute.TransactionBehavior, migrationFunc);
 
             foreach (MigrationTraitAttribute traitAttribute in migrationType.GetAllAttributes<MigrationTraitAttribute>())

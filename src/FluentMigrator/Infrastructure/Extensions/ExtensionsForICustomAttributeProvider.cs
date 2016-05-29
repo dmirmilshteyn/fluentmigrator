@@ -23,16 +23,26 @@ namespace FluentMigrator.Infrastructure.Extensions
 {
     public static class ExtensionsForICustomAttributeProvider
     {
+#if NETSTANDARD1_3
+        public static T GetOneAttribute<T>(this Type member)
+#else
         public static T GetOneAttribute<T>(this ICustomAttributeProvider member)
-            where T : Attribute
-        {
+#endif
+        where T : Attribute {
             return member.GetOneAttribute<T>(false);
         }
 
+#if NETSTANDARD1_3
+        public static T GetOneAttribute<T>(this Type member, bool inherit)
+#else
         public static T GetOneAttribute<T>(this ICustomAttributeProvider member, bool inherit)
-            where T : Attribute
-        {
+#endif
+            where T : Attribute {
+#if NETSTANDARD1_3
+            T[] attributes = member.GetTypeInfo().GetCustomAttributes(typeof(T), inherit) as T[];
+#else
             T[] attributes = member.GetCustomAttributes(typeof(T), inherit) as T[];
+#endif
 
             if ((attributes == null) || (attributes.Length == 0))
                 return null;
@@ -40,28 +50,48 @@ namespace FluentMigrator.Infrastructure.Extensions
                 return attributes[0];
         }
 
+#if NETSTANDARD1_3
+        public static T[] GetAllAttributes<T>(this Type member)
+#else
         public static T[] GetAllAttributes<T>(this ICustomAttributeProvider member)
-            where T : Attribute
-        {
+#endif
+            where T : Attribute {
             return member.GetAllAttributes<T>(false);
         }
 
+#if NETSTANDARD1_3
+        public static T[] GetAllAttributes<T>(this Type member, bool inherit)
+#else
         public static T[] GetAllAttributes<T>(this ICustomAttributeProvider member, bool inherit)
-            where T : Attribute
-        {
+#endif
+            where T : Attribute {
+#if NETSTANDARD1_3
+            return member.GetTypeInfo().GetCustomAttributes(typeof(T), inherit) as T[];
+#else
             return member.GetCustomAttributes(typeof(T), inherit) as T[];
+#endif
         }
 
+#if NETSTANDARD1_3
+        public static bool HasAttribute<T>(this Type member)
+#else
         public static bool HasAttribute<T>(this ICustomAttributeProvider member)
-            where T : Attribute
-        {
+#endif
+            where T : Attribute {
             return member.HasAttribute<T>(false);
         }
 
+#if NETSTANDARD1_3
+        public static bool HasAttribute<T>(this Type member, bool inherit)
+#else
         public static bool HasAttribute<T>(this ICustomAttributeProvider member, bool inherit)
-            where T : Attribute
-        {
+#endif
+            where T : Attribute {
+#if NETSTANDARD1_3
+            return member.GetTypeInfo().IsDefined(typeof(T), inherit);
+#else
             return member.IsDefined(typeof(T), inherit);
+#endif
         }
     }
 }
