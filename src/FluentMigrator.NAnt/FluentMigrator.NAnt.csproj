@@ -57,6 +57,15 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\FluentMigrator\bin\Debug\net35\FluentMigrator.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator.Console">
+      <HintPath>..\FluentMigrator.Console\bin\Debug\net35\FluentMigrator.Console.exe</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator.Runner">
+      <HintPath>..\FluentMigrator.Runner\bin\Debug\net35\FluentMigrator.Runner.dll</HintPath>
+    </Reference>
     <Reference Include="NAnt.Core, Version=0.85.2478.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\tools\nant\NAnt.Core.dll</HintPath>
@@ -73,20 +82,6 @@
     </Compile>
     <Compile Include="MigrateTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FluentMigrator.Console\FluentMigrator.Console.csproj">
-      <Project>{664C7334-B44B-4D62-A0F8-063805D630AA}</Project>
-      <Name>FluentMigrator.Console</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentMigrator.Runner\FluentMigrator.Runner.csproj">
-      <Project>{CB468AD6-60C2-42E9-B3B0-01968EF94C65}</Project>
-      <Name>FluentMigrator.Runner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentMigrator\FluentMigrator.csproj">
-      <Project>{FD9410F9-6FEA-47F7-A78E-B4F6FB0539B8}</Project>
-      <Name>FluentMigrator</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

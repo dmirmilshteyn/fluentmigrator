@@ -29,6 +29,8 @@ examplecommand.txt
 *.ncrunchsolution
 *.crunchsolution.cache
 src/FluentMigrator.T4.Tests/IntialMigrationCode.cs
+project.lock.json
+.vs/
 
 #StyleCop
 *.StyleCop

@@ -1,0 +1,27 @@
+﻿{
+  "version": "1.6.1",
+
+  "buildOptions": {
+    "compile": {
+      "include": "../SolutionInfo.cs"
+    }
+  },
+
+  "dependencies": {
+    "FluentMigrator.Runner": {
+      "target": "project"
+    }
+  },
+
+  "frameworks": {
+    "net35": {
+      "frameworkAssemblies": {
+        "Microsoft.Build.Framework": "3.5.0.0",
+        "Microsoft.Build.Utilities.v3.5": "3.5.0.0",
+        "System": "2.0.0.0",
+        "System.Core": "3.5.0.0",
+        "System.Data": "2.0.0.0"
+      }
+    }
+  }
+}

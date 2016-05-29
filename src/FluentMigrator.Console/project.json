@@ -1,0 +1,28 @@
+﻿{
+  "version": "1.6.1",
+
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "compile": {
+      "include": "../SolutionInfo.cs"
+    }
+  },
+
+  "dependencies": {
+    "FluentMigrator.Runner": { "target": "project" }
+  },
+
+  "frameworks": {
+    "net35": {
+      "frameworkAssemblies": {
+        "System": "2.0.0.0",
+        "System.Core": "3.5.0.0",
+        "System.Configuration": "2.0.0.0",
+        "System.Xml.Linq": "3.5.0.0",
+        "System.Data.DataSetExtensions": "3.5.0.0",
+        "System.Data": "2.0.0.0",
+        "System.Xml": "2.0.0.0"
+      }
+    }
+  }
+}

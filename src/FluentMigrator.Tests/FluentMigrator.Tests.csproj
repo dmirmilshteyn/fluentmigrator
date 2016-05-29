@@ -110,6 +110,18 @@
     <Reference Include="FirebirdSql.Data.FirebirdClient">
       <HintPath>..\..\lib\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\FluentMigrator\bin\Debug\net35\FluentMigrator.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator.Console">
+      <HintPath>..\FluentMigrator.Console\bin\Debug\net35\FluentMigrator.Console.exe</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator.Runner">
+      <HintPath>..\FluentMigrator.Runner\bin\Debug\net35\FluentMigrator.Runner.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator.SchemaDump">
+      <HintPath>..\FluentMigrator.SchemaDump\bin\Debug\net35\FluentMigrator.SchemaDump.dll</HintPath>
+    </Reference>
     <Reference Include="Oracle.DataAccess">
       <HintPath>..\..\lib\Oracle.DataAccess.dll</HintPath>
     </Reference>
@@ -492,24 +504,6 @@
     <Compile Include="Unit\Versioning\VersionInfoTests.cs" />
     <Compile Include="Unit\VersionLoaderTests.cs" />
     <Compile Include="Unit\VersionOrderInvalidExceptionTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FluentMigrator.SchemaDump\FluentMigrator.SchemaDump.csproj">
-      <Project>{F81E3EAB-CD44-4B55-A0EC-16F05CB45413}</Project>
-      <Name>FluentMigrator.SchemaDump</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentMigrator.Console\FluentMigrator.Console.csproj">
-      <Project>{664C7334-B44B-4D62-A0F8-063805D630AA}</Project>
-      <Name>FluentMigrator.Console</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentMigrator.Runner\FluentMigrator.Runner.csproj">
-      <Project>{CB468AD6-60C2-42E9-B3B0-01968EF94C65}</Project>
-      <Name>FluentMigrator.Runner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FluentMigrator\FluentMigrator.csproj">
-      <Project>{FD9410F9-6FEA-47F7-A78E-B4F6FB0539B8}</Project>
-      <Name>FluentMigrator</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="FluentMigrator.snk" />
