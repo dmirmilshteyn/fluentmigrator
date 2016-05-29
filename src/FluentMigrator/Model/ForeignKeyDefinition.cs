@@ -20,6 +20,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using FluentMigrator.Infrastructure;
+#if NETSTANDARD1_3
+using Rule = FluentMigrator.DataRule;
+#endif
 
 namespace FluentMigrator.Model
 {

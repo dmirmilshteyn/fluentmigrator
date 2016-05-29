@@ -1,5 +1,8 @@
 using FluentMigrator.Infrastructure;
 using System.Data;
+#if NETSTANDARD1_3
+using Rule = FluentMigrator.DataRule;
+#endif
 
 namespace FluentMigrator.Builders
 {

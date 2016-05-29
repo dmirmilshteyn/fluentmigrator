@@ -18,6 +18,9 @@
 
 using System.Data;
 using FluentMigrator.Expressions;
+#if NETSTANDARD1_3
+using Rule = FluentMigrator.DataRule;
+#endif
 
 namespace FluentMigrator.Builders.Create.ForeignKey
 {

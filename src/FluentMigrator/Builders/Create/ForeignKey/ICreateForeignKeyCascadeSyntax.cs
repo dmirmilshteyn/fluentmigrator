@@ -1,5 +1,8 @@
 using System.Data;
 using FluentMigrator.Infrastructure;
+#if NETSTANDARD1_3
+using Rule = FluentMigrator.DataRule;
+#endif
 
 namespace FluentMigrator.Builders.Create.ForeignKey
 {
