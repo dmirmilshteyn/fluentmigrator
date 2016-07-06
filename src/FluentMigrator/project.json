@@ -20,6 +20,14 @@
         "System.Data": "2.0.0.0",
         "System.Xml": "2.0.0.0"
       }
+    },
+    "netstandard1.3": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "System.Data.Common": "4.1.0",
+        "System.Runtime.Serialization.Primitives": "4.1.1",
+        "System.Reflection.TypeExtensions": "4.1.0"
+      }
     }
   }
 }
